@@ -8,7 +8,7 @@ for (let i = 1; i <= 9; i++) {
     });
 }
 
-document.querySelectorAll('#close').forEach(button => {
+document.querySelectorAll('.close').forEach(button => {
     button.addEventListener('click', (event) => {
         document.querySelectorAll('.service_wrapper').forEach(
             wrapper => wrapper.classList.remove('show')
