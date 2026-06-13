@@ -32,7 +32,11 @@ html {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
-    min-width: 400px;
+    min-width: 300px;
+}
+
+* {
+  transition: all 0.5s;
 }
 
 
@@ -172,7 +176,7 @@ body {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
-    min-width: 400px;
+    min-width: 300px;
 }
 
 body img {
@@ -233,7 +237,7 @@ body p {
     background-image: url(/img/home/homepage.png);
     background-size: cover;
     width: 100vw;
-    min-width: 400px;
+    min-width: 300px;
     height: calc(100% + 7rem);
     z-index: 0;
     opacity: 0.3;
@@ -1018,7 +1022,7 @@ main #services .item:hover p:nth-of-type(2) {
 
 #pricelist p {
     text-align: center;
-    justify-self: center;
+    /* justify-self: center; */
 }
 
 .price_container {
@@ -1114,10 +1118,11 @@ main #services .item:hover p:nth-of-type(2) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 2rem;
     background-color: var(--background-color);
     border: 2px solid var(--button);
     border-radius: 2rem;
-    padding: 2rem;
+    padding: 1rem 2rem 2rem 2rem;
     margin: 0 2rem 2rem 2rem;
     transition: all 0.5s;
 }
@@ -1133,6 +1138,7 @@ main #services .item:hover p:nth-of-type(2) {
     text-align: left;
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    align-self: center;
 }
 
 .additional_services h5 {
@@ -1140,7 +1146,7 @@ main #services .item:hover p:nth-of-type(2) {
     text-align: center;
 }
 
-.additional_services p {
+#pricelist .additional_services p {
     text-align: left;
     width: fit-content;
     margin: 0;
@@ -1750,6 +1756,10 @@ body footer .footer_info p, .footer_info {
         width: auto;
         text-align: center;
     }
+    #pricelist .additional_services p {
+        text-align: center;
+        width: 100%;
+    }
     .reviews_grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
@@ -1816,6 +1826,7 @@ body footer .footer_info p, .footer_info {
     }
     .additional_services {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 5rem 1fr 1fr;
         text-align: center;
     }
     .additional_services h3 {
@@ -1930,17 +1941,43 @@ body footer .footer_info p, .footer_info {
     .item {
         padding: 1.5rem;
     }
+
     .additional_services {
         text-align: center;
-        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr;  
+        grid-template-rows: auto;  
+        column-gap: 1rem; 
+    }
+
+    .additional_services h3 {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .additional_services h5:nth-of-type(1) { grid-row: 2; grid-column: 1; }
+    .additional_services h5:nth-of-type(2) { grid-row: 2; grid-column: 2; }
+    .additional_services h5:nth-of-type(3) { grid-row: 4; grid-column: 1; }
+    .additional_services h5:nth-of-type(4) { grid-row: 4; grid-column: 2; }
+
+    .additional_services p:nth-of-type(1) { grid-row: 3; grid-column: 1; }
+    .additional_services p:nth-of-type(2) { grid-row: 3; grid-column: 2; }
+    .additional_services p:nth-of-type(3) { grid-row: 5; grid-column: 1; }
+    .additional_services p:nth-of-type(4) { grid-row: 5; grid-column: 2; }
+
+    #pricelist .additional_services p {
+        text-align: center;
+        margin: 0;
+        padding-top: 0.5rem;
+    }
+
+    .additional_services h4 {
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
     }
     .additional_services h5 {
         text-align: center;
         grid-column: 1;
-    }
-    .additional_services p {
-        text-align: center;
-        grid-column: 2;
     }
     .price_custom h3 {
         font-size: 1.5rem;
@@ -1971,7 +2008,7 @@ body footer .footer_info p, .footer_info {
     }
 }
 
-@media only screen and (min-width: 400px) and (max-width: 580px) {
+@media only screen and (min-width: 401px) and (max-width: 580px) {
     body h3 {
         font-size: 2.5rem;
     }
@@ -2042,6 +2079,120 @@ body footer .footer_info p, .footer_info {
     }
 }
 
+@media only screen and (min-width: 300px) and (max-width: 400px) {
+    body h3 {
+        font-size: 2.5rem;
+    }
+    #home {
+        padding: 2rem 2rem;
+    }
+    #home h2 {
+        font-size: 4rem;
+        margin-top: 6rem;
+    }
+    #home p {
+        font-size: 1rem;
+    } 
+    .hero_buttons .button {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .hero_buttons .button:first-of-type i {
+        font-size: 1rem;
+    }
+    #home, #about, #services, #pricelist, #reviews, #contact {
+        padding: 2rem 1rem;
+    }
+    .item i {
+        font-size: 1.4rem;
+        padding: 0.5rem;
+    }
+    .item h5 {
+        font-size: 1rem;
+    }
+    .price table tr th {
+        font-size: 1rem;
+    }
+    .price table tr th i {
+        font-size: 1.2rem;
+        padding: 0.4rem;
+    }
+    .price table td {
+        font-size: 0.9rem;
+    }
+
+    .additional_services {
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        column-gap: 1rem;   
+    }
+
+    .additional_services h5:nth-of-type(1) { grid-row: 2; grid-column: 1; }
+    .additional_services h5:nth-of-type(2) { grid-row: 4; grid-column: 1; }
+    .additional_services h5:nth-of-type(3) { grid-row: 6; grid-column: 1; }
+    .additional_services h5:nth-of-type(4) { grid-row: 8; grid-column: 1; }
+
+    .additional_services p:nth-of-type(1) { grid-row: 3; grid-column: 1; }
+    .additional_services p:nth-of-type(2) { grid-row: 5; grid-column: 1; }
+    .additional_services p:nth-of-type(3) { grid-row: 7; grid-column: 1; }
+    .additional_services p:nth-of-type(4) { grid-row: 9; grid-column: 1; }
+
+
+    .additional_services h3 {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        font-size: 1rem;
+    }
+
+    #pricelist .additional_services h4,
+    #pricelist .additional_services p {
+        grid-column: auto;
+        grid-row: auto;
+        font-size: 0.9rem;
+    }
+
+    .additional_services h4 {
+        padding-top: 1.5rem;
+        margin: 0;
+    }
+
+    #pricelist .additional_services p {
+        text-align: center;
+        margin: 0;
+        padding-top: 0.3rem;
+    }
+
+    .table_right {
+        font-size: 1rem;
+    }
+    .contact_detail {
+        padding: 1rem;
+    }
+    #contact .contact_detail i {
+        font-size: 1.2rem;
+        padding: 0.4rem;
+    }
+    #contact .contact_detail h5 {
+        font-size: 1rem;
+    }
+    #contact .contact_detail p, #contact .contact_detail a {
+        font-size: 0.9rem;
+    }
+    .portfolio_detail ul li, .service_detail ul li {
+        font-size: 0.9rem;
+    }
+    .portfolio_detail h4, .service_detail h4 {
+        font-size: 1rem;
+    }
+    .portfolio_detail .gradient {
+        display: none;
+    }
+    .reviews_item p {
+        font-size: 0.9rem;
+    }
+}
+
 /* CSS validator fixes */
 h3.portfolio-h3 {
     color: var(--main-purple);
@@ -2075,3 +2226,45 @@ body h4, h5 {
     font-weight: 400;
     color: white;
 }
+
+
+.loader_container {
+    width: 100%;
+    height: 100vh;
+    background-color: #f3f3f3;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+
+  .loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid;
+    color: var(--main-purple);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: loader 1.2s linear infinite;
+  }
+
+  @keyframes loader {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+
+
+  /* TO DO 
+  
+  HOME PORTFOLIO ZMENSIT TEXT ON HOVER
+  
+  POPUPY SPRAVIT RESPONZIVNE
+  
+  UPRAVIT KONTAKTNY FORMULAR
+  
+  UPRAVIT FOOTER PRI RESPONSIVE*/

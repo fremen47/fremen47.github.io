@@ -7,3 +7,15 @@ window.addEventListener('scroll', function() {
         header.classList.remove('scrolled');
     }
 });
+
+window.addEventListener("load", function () {
+  const loader = document.querySelector(".loader_container");
+  if (!loader) return;
+
+  loader.style.transition = "opacity 1s ease-out";
+  loader.style.opacity = "0";
+
+  loader.addEventListener("transitionend", function () {
+    loader.remove();
+  });
+});
