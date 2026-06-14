@@ -1667,7 +1667,7 @@ body footer .footer_info p, .footer_info {
 }
 
 .show_menu {
-    transform: translateY(0);
+    transform: translateY(81px);
 }
 
 .hamburger_menu button.darkmode_hamburger_btn {
@@ -1678,7 +1678,7 @@ body footer .footer_info p, .footer_info {
     font-weight: 500;
     color: var(--black);
     cursor: pointer;
-    padding: 0.8rem 0;
+    padding: 0;
     width: 100%;
     text-align: left;
     transition: all 0.3s ease;
@@ -1792,7 +1792,7 @@ body footer .footer_info p, .footer_info {
         height: auto;
         max-height: 85vh;
         overflow-y: auto;
-        min-width: 400px;
+        min-width: 300px;
     }
     .service_detail img, .service_detail .gradient,
     .portfolio_detail img, .portfolio_detail .gradient {
@@ -1851,8 +1851,11 @@ body footer .footer_info p, .footer_info {
     header nav {
         display: none;
     }
-    .right_content {
+    .right_content a {
         display: none;
+    }
+    #mode_switch {
+        margin-right: 5rem;
     }
     .hamburger {
         display: block;
@@ -1864,18 +1867,23 @@ body footer .footer_info p, .footer_info {
         left: 0;
         right: 0;
         top: 0;
-        bottom: auto;
-        padding: 5rem 0 2rem 0;
+        bottom: 90%;
+        padding: 0;
         align-items: center;
         background-color: var(--background-color);
         border-bottom: 2px solid var(--main-purple);
         z-index: 1000;
+        flex-direction: row;
+        justify-content: space-around;
     }
     .hamburger_menu.show_menu {
-        transform: translateY(0);
+        transform: translateY(81px);
     }
     .hamburger_menu li {
-        padding: 0.8rem 0;
+        padding: 0.8rem 1rem;
+    }
+    .hamburger_menu li:last-of-type {
+        display: none;
     }
     .hamburger_menu li a {
         font-size: 1.2rem;
@@ -2012,6 +2020,42 @@ body footer .footer_info p, .footer_info {
     body h3 {
         font-size: 2.5rem;
     }
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    .hamburger_menu {
+        display: flex;
+        transform: translateY(-100%);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: auto;
+        padding: 0;
+        align-items: flex-start;
+        background-color: var(--background-color);
+        border-bottom: 2px solid var(--main-purple);
+        z-index: 1000;
+        flex-direction: column;
+    }
+    .hamburger_menu.show_menu {
+        transform: translateY(81px);
+    }
+    .hamburger_menu li {
+        padding: 0.8rem 2rem;
+    }
+    .hamburger_menu li:last-of-type {
+        display: none;
+    }
+    .hamburger_menu li a {
+        font-size: 1.2rem;
+    }
+    .hamburger i:nth-of-type(1).hide {
+        display: none;
+    }
+    .hamburger i:nth-of-type(2).show {
+        display: block;
+    }
     #home {
         padding: 2rem 2rem;
     }
@@ -2082,6 +2126,45 @@ body footer .footer_info p, .footer_info {
 @media only screen and (min-width: 300px) and (max-width: 400px) {
     body h3 {
         font-size: 2.5rem;
+    }
+    .right_content {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    .hamburger_menu {
+        display: flex;
+        transform: translateY(-100%);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: auto;
+        padding: 0;
+        align-items: flex-start;
+        background-color: var(--background-color);
+        border-bottom: 2px solid var(--main-purple);
+        z-index: 1000;
+        flex-direction: column;
+    }
+    .hamburger_menu.show_menu {
+        transform: translateY(81px);
+    }
+    .hamburger_menu li {
+        padding: 0.8rem 2rem;
+    }
+    .hamburger_menu li:last-of-type {
+        display: block;
+    }
+    .hamburger_menu li a {
+        font-size: 1.2rem;
+    }
+    .hamburger i:nth-of-type(1).hide {
+        display: none;
+    }
+    .hamburger i:nth-of-type(2).show {
+        display: block;
     }
     #home {
         padding: 2rem 2rem;
@@ -2193,6 +2276,52 @@ body footer .footer_info p, .footer_info {
     }
 }
 
+@media only screen and (max-width: 300px) {
+    .right_content {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    .hamburger_menu {
+        display: flex;
+        transform: translateY(-100%);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: auto;
+        padding: 0;
+        align-items: center;
+        background-color: var(--background-color);
+        border-bottom: 2px solid var(--main-purple);
+        z-index: 1000;
+        flex-direction: column;
+    }
+    .hamburger_menu.show_menu {
+        transform: translateY(81px);
+    }
+    .hamburger_menu li {
+        padding: 0.8rem 1rem;
+    }
+    .hamburger_menu li:last-of-type {
+        display: block;
+    }
+    .hamburger_menu li a {
+        font-size: 1.2rem;
+    }
+    .hamburger i:nth-of-type(1).hide {
+        display: none;
+    }
+    .hamburger i:nth-of-type(2).show {
+        display: block;
+    }
+}
+
+
+
+
+
 /* CSS validator fixes */
 h3.portfolio-h3 {
     color: var(--main-purple);
@@ -2259,11 +2388,13 @@ body h4, h5 {
 
 
 
+
   /* TO DO 
   
   HOME PORTFOLIO ZMENSIT TEXT ON HOVER
   
   POPUPY SPRAVIT RESPONZIVNE
+    - x button nie je sticky
   
   UPRAVIT KONTAKTNY FORMULAR
   
