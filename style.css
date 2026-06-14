@@ -1485,6 +1485,7 @@ form {
     border: 1px solid var(--button);
     transition: all 0.5s;
     margin-top: 1rem;
+    z-index: 1;
 }
 
 #contact_map:hover {
@@ -1670,6 +1671,10 @@ body footer .footer_info p, .footer_info {
     display: none;
 }
 
+.hamburger i {
+    color: var(--black);
+}
+
 .hamburger i:nth-of-type(1) {
     font-size: 2rem;
     display: block;
@@ -1707,9 +1712,9 @@ body footer .footer_info p, .footer_info {
     color: var(--black);
 }
 
-.darkmode .hamburger i {
+/* .darkmode .hamburger i {
     color: white;
-}
+} */
 
 /* ---------------------------------------MEDIA QUERRIES--------------------------------------- */
 
