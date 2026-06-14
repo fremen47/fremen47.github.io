@@ -8,11 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="darkmode.js" defer></script>
     <script src="services.js" defer></script>
     <script src="scroll.js" defer></script>
     <script src="home.js" defer></script>
     <script src="hamburger.js" defer></script>
+    <script src="map.js" defer></script>
     <title>NOJA</title>
 </head>
 
@@ -77,30 +80,40 @@
                 <div class="hero_grid_3">
                     <div class="gradient" id="gradient1">
                         <img src="img/home/personal.jpg" alt="Náš personál">
-                        <h4 class="portfolio_h3">Úklid domu</h4>
-                        <p>Klikni pro více info</p>
+                        <div class="portfolio_text">
+                            <h4 class="portfolio_h3">Úklid domu</h4>
+                            <p>Klikni pro více info</p>
+                        </div>
                     </div>
                     <div class="gradient" id="gradient2">
                         <img src="img/home/bucket.jpg" alt="Kyblík">
-                        <h4>Úklid kanceláří pro frimu "NAZOV"</h4>
-                        <p>Klikni pro více info</p>
+                        <div class="portfolio_text">
+                            <h4>Úklid kanceláří pro frimu "NAZOV"</h4>
+                            <p>Klikni pro více info</p>
+                        </div>
                     </div>
                     <div class="gradient" id="gradient3">
                         <img src="img/home/closeup_vacuum.jpg" alt="Vysávání">
-                        <h4>Desinfekce nemocnice v Brně</h4>
-                        <p>Klikni pro více info</p>
+                        <div class="portfolio_text">
+                            <h4>Desinfekce nemocnice v Brně</h4>
+                            <p>Klikni pro více info</p>
+                        </div>
                     </div>
                 </div>
                 <div class="hero_grid_2">
                     <div class="gradient" id="gradient4">
                         <img src="img/home/outdoor.jpg" alt="Čištení venkovních prostorů">
-                        <h4>Mytí farmy na solární panely</h4>
-                        <p>Klikni pro více info</p>
+                        <div class="portfolio_text">
+                            <h4>Mytí farmy na solární panely</h4>
+                            <p>Klikni pro více info</p>
+                        </div>
                     </div>
                     <div class="gradient" id="gradient5">
                         <img src="img/home/closeup.png" alt="Detailní čištení">
-                        <h4>Čištení po rekonstrukci firmy "NAZOV"</h4>
-                        <p>Klikni pro více info</p>
+                        <div class="portfolio_text">
+                            <h4>Čištení po rekonstrukci firmy "NAZOV"</h4>
+                            <p>Klikni pro více info</p>
+                        </div>
                     </div>
                 </div>
 <!-- for now i used the same as in services section because i do not have what i need for portfolio -->
@@ -904,23 +917,27 @@
             <p>Kontaktujte nás pro nezávaznou cenovou nabídku. Rádi odpovíme na všechny vaše dotazy.</p>
             
             <div class="contact_form">
-                <form>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="0ecc256b-f46a-48a2-8c2e-ecf747a817aa">
+                    <input type="hidden" name="subject" value="Nová poptávka z webu">
+                    <input type="hidden" name="from_name" value="Kontaktní formulář">
+                    <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
                     <h4>Kontaktní formulář</h4>
                     <div class="contact_form_detail">
                         <h5>Jméno a přijmení *</h5>
-                        <input type="text" id="name">
+                        <input type="text" name="name" id="name" placeholder="Jméno Přijmení" required>
                     </div>
                     <div class="contact_form_detail">
                         <h5>Email *</h5>
-                        <input type="text" id="mail">
+                        <input type="text" name="email" id="mail" placeholder="email@mail.com" required>
                     </div>
                     <div class="contact_form_detail">
                         <h5>Telefon *</h5>
-                        <input type="text" id="num">
+                        <input type="text" name="phone" id="num" placeholder="+420999888777" required>
                     </div>
                     <div class="contact_form_detail">
                         <h5>Typ služby</h5>
-                        <select id="select">
+                        <select id="select" name="service_type" required>
                             <option>Vyberte službu</option>
                             <option>Úklid bytu</option>
                             <option>Úklid kanceláře</option>
@@ -929,8 +946,8 @@
                         </select>
                     </div>
                     <div class="contact_form_detail">
-                        <h5>Zpráva</h5>
-                        <input type="text" id="msg">
+                        <h5>Zpráva *</h5>
+                        <textarea type="text" name="message" placeholder="Zpráva kterou chcete poslat" id="msg"></textarea>
                     </div>
                     <button type="submit">Odeslat poptávku</button>
                     <p>* Povinné pole</p>
@@ -970,8 +987,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="contact_map">
-                    <!-- mapa -->
+                <div id="contact_map">
+                    
                 </div>
             </div>
         </section>
