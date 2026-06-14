@@ -11,14 +11,12 @@ function toggleMenu() {
     menu.classList.remove("show_menu");
     header.classList.remove("scrolled");
     // header.style.backgroundColor = "transparent";
-    main.style.opacity = "1";
     close.style.display = "none";
     open.style.display = "block";
   } else {
     menu.classList.add("show_menu");
     header.classList.add("scrolled");
     // header.style.backgroundColor = "white";
-    main.style.opacity = "0.3";
     close.style.display = "block";
     open.style.display = "none";
   }
